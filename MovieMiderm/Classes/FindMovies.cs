@@ -23,8 +23,8 @@ namespace MovieMiderm.Classes
             {
                 case PropertyTypeCodes.MOVIE_NAME:
                     return movies.Where(x => string.Equals(x.MovieName, searchCriteria, StringComparison.OrdinalIgnoreCase)).ToList();
-                case PropertyTypeCodes.MAIN_ACTOR_NAME:
-                    return movies.Where(x => string.Equals(x.MainActorName, searchCriteria, StringComparison.OrdinalIgnoreCase)).ToList();
+                case PropertyTypeCodes.ACTOR_NAME:
+                    return movies.Where(x => string.Equals(x.ActorName, searchCriteria, StringComparison.OrdinalIgnoreCase)).ToList();
                 case PropertyTypeCodes.GENRE:
                     return movies.Where(x => string.Equals(x.Genre, searchCriteria, StringComparison.OrdinalIgnoreCase)).ToList();
                 case PropertyTypeCodes.DIRECTOR:

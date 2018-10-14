@@ -24,13 +24,13 @@ namespace MovieMiderm.Classes
             return _maxLength;
         }
 
-        public int GetMaxMainActorNameLength(IList<IMovie> movies)
+        public int GetMaxActorNameLength(IList<IMovie> movies)
         {
             _maxLength = 0;
 
             foreach (var movie in movies)
             {
-                var currentLength = movie.MainActorName.Length;
+                var currentLength = movie.ActorName.Length;
                 _maxLength = Math.Max(_maxLength, currentLength);
             }
 

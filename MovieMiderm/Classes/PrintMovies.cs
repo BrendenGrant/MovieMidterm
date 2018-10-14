@@ -8,7 +8,7 @@ namespace MovieMiderm.Classes
     public class PrintMovies
     {
         private static int _maxMovieNameLength;
-        private static int _maxMainActorNameLength;
+        private static int _maxActorNameLength;
         private static int _maxGenreLength;
         private static int _maxDirectorLength;
 
@@ -31,7 +31,7 @@ namespace MovieMiderm.Classes
         {
             return $"{currentRecordIndex, 2} " +
                 $"{movie.MovieName.PadLeft(_maxMovieNameLength)} " +
-                $"{movie.MainActorName.PadLeft(_maxMainActorNameLength)} " +
+                $"{movie.ActorName.PadLeft(_maxActorNameLength)} " +
                 $"{movie.Genre.PadLeft(_maxGenreLength)} " +
                 $"{movie.Director.PadLeft(_maxDirectorLength)}";
         }
@@ -41,7 +41,7 @@ namespace MovieMiderm.Classes
             var getMaxStringLengths = new GetMaxStringLengths();
 
             _maxMovieNameLength = getMaxStringLengths.GetMaxMovieNameLength(movies);
-            _maxMainActorNameLength = getMaxStringLengths.GetMaxMainActorNameLength(movies);
+            _maxActorNameLength = getMaxStringLengths.GetMaxActorNameLength(movies);
             _maxGenreLength = getMaxStringLengths.GetMaxGenreLength(movies);
             _maxDirectorLength = getMaxStringLengths.GetMaxDirectorLength(movies);
         }
@@ -49,11 +49,11 @@ namespace MovieMiderm.Classes
         private static void PrintHeaders()
         {
             Console.WriteLine($"Movie Name".PadLeft(_maxMovieNameLength + 3) +
-                            $"Main Actor".PadLeft(_maxMainActorNameLength + 1) +
+                            $"Actor".PadLeft(_maxActorNameLength + 1) +
                             $"Genre".PadLeft(_maxGenreLength + 1) +
                             $"Director".PadLeft(_maxDirectorLength + 1));
 
-            var totalSpaces = 6 + _maxMovieNameLength + _maxMainActorNameLength + _maxGenreLength + _maxDirectorLength;
+            var totalSpaces = 6 + _maxMovieNameLength + _maxActorNameLength + _maxGenreLength + _maxDirectorLength;
             var headerSeparator = new StringBuilder().Insert(0, "-", totalSpaces).ToString();
 
             Console.WriteLine(headerSeparator);

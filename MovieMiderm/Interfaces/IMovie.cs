@@ -3,7 +3,7 @@
     public interface IMovie
     {
         string MovieName { get; }
-        string MainActorName { get; }
+        string ActorName { get; }
         string Genre { get; }
         string Director { get; }
     }

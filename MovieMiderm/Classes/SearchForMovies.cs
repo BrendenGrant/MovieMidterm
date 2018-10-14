@@ -14,7 +14,7 @@ namespace MovieMiderm.Classes
 
         public IList<IMovie> SearchByActorName(string actorName, IList<IMovie> movies)
         {
-            return movies.Where(x => x.MainActorName.Contains(actorName, StringComparison.OrdinalIgnoreCase)).ToList();
+            return movies.Where(x => x.ActorName.Contains(actorName, StringComparison.OrdinalIgnoreCase)).ToList();
         }
 
         public IList<IMovie> SearchByGenre(string genre, IList<IMovie> movies)

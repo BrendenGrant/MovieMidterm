@@ -6,7 +6,7 @@
         {
             public const string DIRECTOR = "DIRECTOR";
             public const string GENRE = "GENRE";
-            public const string MAIN_ACTOR_NAME = "MAINACTORNAME";
+            public const string ACTOR_NAME = "ACTORNAME";
             public const string MOVIE_NAME = "MOVIENAME";
         }
 

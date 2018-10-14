@@ -138,6 +138,8 @@ namespace MovieMiderm.Classes
 
         private void PrintSearchedResults()
         {
+            _isUserInputValid = true;
+
             if (!_searchedMovieResults.Any())
                 NoResultsFound();
             else
@@ -167,6 +169,7 @@ namespace MovieMiderm.Classes
             newDirector = Console.ReadLine();
 
             _addNewMovie.Add(_movies, newMovieName, newActorName, newGenre, newDirector);
+            Console.WriteLine();
             PrintCurrentMenu();
         }
 
@@ -174,6 +177,7 @@ namespace MovieMiderm.Classes
 
         private void PrintSearchedMovies(IList<IMovie> searchedMovieResults)
         {
+            Console.WriteLine();
             PrintMovies.Print(searchedMovieResults);
             Console.WriteLine();
         }
