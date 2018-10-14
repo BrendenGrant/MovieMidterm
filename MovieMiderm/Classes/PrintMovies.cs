@@ -14,16 +14,16 @@ namespace MovieMiderm.Classes
 
         public static void Print(IList<IMovie> movies)
         {
-            var currentRecordIndex = 0;
+            var currentRecord = 1;
 
             GetLongestStringFromMovieList(movies);
             PrintHeaders();
 
             foreach (var movie in movies)
             {
-                var movieToPrint = MoviePrintFormatting(movie, currentRecordIndex);
+                var movieToPrint = MoviePrintFormatting(movie, currentRecord);
                 Console.WriteLine(movieToPrint);
-                currentRecordIndex++;
+                currentRecord++;
             }
         }
 

@@ -6,3 +6,4 @@ Forest Gump,Tom Hanks,Drama,Robert Zemeckis
 Jurassic Park,Sam Neill,Fantasy,Steven Spielberg
 The Dark Knight,Christian Bale,Thriller,Christopher Nolan
 The Karate Kid,Ralph Macchio,Sport,John G. Avildsen
+A Few Good Men,Tom Cruise,Mystery,Rob Reiner

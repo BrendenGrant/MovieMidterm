@@ -13,7 +13,8 @@ namespace MovieMiderm
         private static IList<IMovie> _movies;
         private static IInputValidation _inputValidation;
         private static ISearchForMovies _searchForMovies;
-        private static IAddNewMovie _addNewMovie;
+        private static IMenuFormatting _menuFormatting;
+        private static IRelevantMenus _relevantMenus;
 
         static void Main(string[] args)
         {
@@ -22,11 +23,10 @@ namespace MovieMiderm
 
             _inputValidation = new InputValidation();
             _searchForMovies = new SearchForMovies();
-            _addNewMovie = new AddNewMovie();
+            _menuFormatting = new MenuFormatting();
+            _relevantMenus = new RelevantMenus();
 
-            var menu = new Menus(_inputValidation, _searchForMovies, _addNewMovie, _movies);
-
-            menu.PrintMainMenu();
+            var menuNavigation = new MenuNavigation(_inputValidation, _menuFormatting,  _movies, _relevantMenus);
         }
     }
 }
