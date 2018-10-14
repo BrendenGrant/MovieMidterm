@@ -1,0 +1,7 @@
+﻿Iron Man,Robert Downey Jr.,Action,Jon Favreau
+Doctor Strange,Benedict Cumberbatch,Action,Scott Derrickson
+Thor,Chris Hemsworth,Action,Kenneth Branagh
+Deadpool,Ryan Reynolds,Action,Tim Miller
+Forest Gump,Tom Hanks,Drama,Robert Zemeckis
+Jurassic Park,Sam Neill,Fantasy,Steven Spielberg
+The Dark Knight,Christian Bale,Thriller,Christopher Nolan
