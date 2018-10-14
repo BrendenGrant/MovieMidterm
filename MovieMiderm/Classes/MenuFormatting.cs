@@ -36,7 +36,8 @@ namespace MovieMiderm.Classes
                 { MenuTypeCodes.PRINT_MOVIES, "1. Show movie list" },
                 { MenuTypeCodes.SEARCH_MENU, "2. Search movie list" },
                 { MenuTypeCodes.ADD_NEW_MOVIE, "3. Add new movie to list" },
-                { MenuTypeCodes.QUIT, "4. Quit" }
+                { MenuTypeCodes.DELETE_MOVIE, "4. Delete movie" },
+                { MenuTypeCodes.QUIT, "5. Quit" }
             };
         }
 

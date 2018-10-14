@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\AddNewMovie.cs" />
+    <Compile Include="Classes\DeleteMovie.cs" />
     <Compile Include="Classes\FindMovies.cs" />
     <Compile Include="Classes\GetMaxStringLengths.cs" />
     <Compile Include="Classes\GetMoviesFromTextFile.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="Classes\StringExtensions.cs" />
     <Compile Include="Constants\Constants.cs" />
     <Compile Include="Interfaces\IAddNewMovie.cs" />
+    <Compile Include="Interfaces\IDeleteMovie.cs" />
     <Compile Include="Interfaces\IInputValidation.cs" />
     <Compile Include="Interfaces\IMenuCommands.cs" />
     <Compile Include="Interfaces\IMenuFormatting.cs" />

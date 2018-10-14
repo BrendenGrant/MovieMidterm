@@ -13,6 +13,7 @@ namespace MovieMiderm.Classes
         private IList<IMovie> _movies;
         private IMenuFormatting _menuFormatting;
         private IAddNewMovie _addNewMovie;
+        private IDeleteMovie _deleteMovie;
         private ISearchForMovies _searchForMovies;
         private IInputValidation _inputValidation;
         private IRelevantMenus _relevantMenus;
@@ -24,6 +25,7 @@ namespace MovieMiderm.Classes
         private Action _searchGenreAction;
         private Action _searchDirectorAction;
         private Action _addNewMovieAction;
+        private Action _deleteMovieAction;
         private Action _quit;
 
         private bool _isUserInputValid = true;
@@ -39,10 +41,11 @@ namespace MovieMiderm.Classes
             }
         }
 
-        public MenuCommands(IMenuFormatting menuFormatting, IAddNewMovie addNewMovie, ISearchForMovies searchForMovies, IInputValidation inputValidation, IList<IMovie> movies, IRelevantMenus relevantMenus)
+        public MenuCommands(IMenuFormatting menuFormatting, IAddNewMovie addNewMovie, IDeleteMovie deleteMovie, ISearchForMovies searchForMovies, IInputValidation inputValidation, IList<IMovie> movies, IRelevantMenus relevantMenus)
         {
             _menuFormatting = menuFormatting;
             _addNewMovie = addNewMovie;
+            _deleteMovie = deleteMovie;
             _searchForMovies = searchForMovies;
             _inputValidation = inputValidation;
             _movies = movies;
@@ -63,6 +66,7 @@ namespace MovieMiderm.Classes
             _searchGenreAction = delegate () { SearchByGenreMenu(); };
             _searchDirectorAction = delegate () { SearchByDirectorMenu(); };
             _addNewMovieAction = delegate () { AddNewMovieMenu(); };
+            _deleteMovieAction = delegate () { DeleteMovieMenu(); };
             _quit = delegate () { Quit(); };
         }
 
@@ -77,6 +81,7 @@ namespace MovieMiderm.Classes
             _menusToPrint.Add(MenuTypeCodes.SEARCH_GENRE, _searchGenreAction);
             _menusToPrint.Add(MenuTypeCodes.SEARCH_DIRECTOR, _searchDirectorAction);
             _menusToPrint.Add(MenuTypeCodes.ADD_NEW_MOVIE, _addNewMovieAction);
+            _menusToPrint.Add(MenuTypeCodes.DELETE_MOVIE, _deleteMovieAction);
         }
 
         public void PrintCurrentMenu()
@@ -128,7 +133,9 @@ namespace MovieMiderm.Classes
         {
             PrintMovies.Print(_movies);
             Console.WriteLine();
-            PrintMainMenu();
+
+            if (_relevantMenus.CurrentMenu != MenuTypeCodes.DELETE_MOVIE && _relevantMenus.NextMenu != MenuTypeCodes.DELETE_MOVIE)
+                PrintMainMenu();
         }
 
         private void PrintSearchMenu()
@@ -218,6 +225,38 @@ namespace MovieMiderm.Classes
             _addNewMovie.Add(_movies, newMovieName, newActorName, newGenre, newDirector);
             Console.WriteLine();
             PrintCurrentMenu();
+        }
+
+        private void DeleteMovieMenu()
+        {
+            PrintAllMovies();
+
+            _relevantMenus.CurrentMenu = MenuTypeCodes.DELETE_MOVIE;
+
+            Console.WriteLine("\nEnter the number of the movie you would like to delete. (Press 0 to return to main menu).");
+            var userInput = Console.ReadLine();
+
+            if (userInput == "0")
+            {
+                ClearScreen();
+                PrintMainMenu();
+                return;
+            }
+
+            if (!_inputValidation.IsValidSelectionForDelete(userInput, _movies))
+            {
+                _isUserInputValid = false;
+                _inputValidation.InputValidationErrorMessage();
+            }
+            else
+            {
+                var indexToDelete = Convert.ToInt32(userInput) - 1;
+                _deleteMovie.Delete(_movies, indexToDelete);
+                Console.WriteLine();
+                ClearScreen();
+                PrintAllMovies();
+                PrintMainMenu();
+            }
         }
 
         private void Quit() { }

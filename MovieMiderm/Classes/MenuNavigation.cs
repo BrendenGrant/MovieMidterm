@@ -24,7 +24,7 @@ namespace MovieMiderm.Classes
             _movies = movies;
             _relevantMenus = relevantMenus;
             _relevantMenus.CurrentMenu = MenuTypeCodes.MAIN_MENU;
-            _menuCommands = new MenuCommands(_menuFormatting, new AddNewMovie(), new SearchForMovies(), _inputValidation, _movies, _relevantMenus);
+            _menuCommands = new MenuCommands(_menuFormatting, new AddNewMovie(), new DeleteMovie(), new SearchForMovies(), _inputValidation, _movies, _relevantMenus);
             _menuCommands.PrintCurrentMenu();
             HandleMenuSelection();
         }
@@ -34,7 +34,7 @@ namespace MovieMiderm.Classes
             _userInput = Console.ReadLine();
             var currentMenuList = _menuFormatting.MenusDictionary.Where(x => x.Key == _relevantMenus.CurrentMenu).Select(y => y.Value).SingleOrDefault().Values.ToList();
 
-            if (!_inputValidation.IsValidMenuSelection(_userInput, currentMenuList))
+            if (!_inputValidation.IsValidMenuSelection(_userInput, currentMenuList) && _relevantMenus.CurrentMenu != MenuTypeCodes.DELETE_MOVIE)
             {
                 _menuCommands.IsUserInputValid = false;
                 _menuCommands.ClearScreen();

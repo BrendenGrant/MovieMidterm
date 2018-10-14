@@ -13,6 +13,7 @@
         public static class MenuTypeCodes
         {
             public const string ADD_NEW_MOVIE = "ADDNEWMOVIE";
+            public const string DELETE_MOVIE = "DELETEMOVIE";
             public const string MAIN_MENU = "MAINMENU";
             public const string PRINT_MOVIES = "PRINTMOVIES";
             public const string SEARCH_MENU = "SEARCHMENU";
